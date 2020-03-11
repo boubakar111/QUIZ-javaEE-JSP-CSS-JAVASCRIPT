@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="css/style.css">
+<TITLE>septieme question</TITLE>
+<script type="text/javascript">
+	function fct() {
+		var checked1 = document.getElementById("Rep1").checked;
+		var checked2 = document.getElementById("Rep2").checked;
+		var checked3 = document.getElementById("Rep3").checked;
+		var checked4 = document.getElementById("Rep4").checked;
+		if (checked1 == false && checked2 == false && checked3 == false
+				&& checked4 == false) {
+			alert("Vous devez au moins choisir une reponse!!!!!");
+			return false;
+		} else {
+			var nom;
+			document.getElementById("Reponse").value = "";
+
+			for (i = 1; i <= 4; i++) {
+				nom = "Rep" + i;
+				if (document.getElementById(nom).checked == true)
+					document.getElementById("Reponse").value += document
+							.getElementById(nom).value
+							+ " , ";
+
+			}
+			alert(document.getElementById("Reponse").value);
+			return true;
+		}
+
+	}
+</script>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+	<div class="outer-div">
+		<div class="inner-div">
+			<h3 id="q">Lequel des énoncés suivants est vrai à propos de
+				l’action < jsp: useBean>?</h3>
+			<FORM METHOD=POST ACTION="Q8.jsp">
+
+				<INPUT TYPE="checkbox" ID="Rep1" NAME="qcm"
+					value="useBean est utilisé pour charger les beans java dans la page jsp.">useBean
+				est utilisé pour charger les beans java dans la page jsp.<BR> <INPUT
+					TYPE="checkbox" ID="Rep2" NAME="qcm"
+					value="Une action useBean recherche d’abord un objet existant en utilisant les variables d’identificateur et de portée. Si un objet est introuvable, 
+		il tente ensuite de créer l’objet spécifié.">Une
+				action useBean recherche d’abord un objet existant en utilisant les
+				variables d’identificateur et de portée. Si un objet est
+				introuvable, il tente ensuite de créer l’objet spécifié.<BR> <INPUT
+					TYPE="checkbox" ID="Rep3" NAME="qcm"
+					value="Tout les réponses sont vrais"> Tout les réponses
+				sont vrais<BR> <INPUT TYPE="checkbox" ID="Rep4" NAME="qcm"
+					value="Aucun de ces réponses"> Aucun de ces réponses<BR>
+				<INPUT TYPE="hidden" name="Reponse" ID="Reponse"> <INPUT
+					TYPE="reset"> <INPUT TYPE="submit" value="Valider"
+					onclick="return fct()">
+			</FORM>
+		</div>
+	</div>
+</BODY>
+</HTML>

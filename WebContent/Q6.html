@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="css/style.css">
+<TITLE>sixieme question</TITLE>
+<script type="text/javascript">
+	function fct() {
+		var checked1 = document.getElementById("Rep1").checked;
+		var checked2 = document.getElementById("Rep2").checked;
+		var checked3 = document.getElementById("Rep3").checked;
+		var checked4 = document.getElementById("Rep4").checked;
+		if (checked1 == false && checked2 == false && checked3 == false
+				&& checked4 == false) {
+			alert("Vous devez au moins choisir une reponse!!!!!");
+			return false;
+		} else {
+			var nom;
+			document.getElementById("Reponse").value = "";
+
+			for (i = 1; i <= 4; i++) {
+				nom = "Rep" + i;
+				if (document.getElementById(nom).checked == true)
+					document.getElementById("Reponse").value += document
+							.getElementById(nom).value
+							+ " , ";
+
+			}
+			alert(document.getElementById("Reponse").value);
+			return true;
+		}
+
+	}
+</script>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+	<div class="outer-div">
+		<div class="inner-div">
+			<h3 id="q">Laquelle de ces affirmations est incorrecte?</h3>
+			<FORM METHOD=POST ACTION="Q7.jsp">
+
+				<INPUT TYPE="checkbox" ID="Rep1" NAME="qcm"
+					value="Chaque classe doit contenir une méthode main ()">Chaque
+				classe doit contenir une méthode main ()<BR> <INPUT
+					TYPE="checkbox" ID="Rep2" NAME="qcm"
+					value="Le programme ne nécessitent pas de méthode main ()">Le
+				programme ne nécessitent pas de méthode main ()<BR> <INPUT
+					TYPE="checkbox" ID="Rep3" NAME="qcm"
+					value="Il ne peut y avoir qu’une seule méthode main () dans un programme">Il
+				ne peut y avoir qu’une seule méthode main () dans un programme<BR>
+				<INPUT TYPE="checkbox" ID="Rep4" NAME="qcm"
+					value=" la méthode main () doit être publique"> la méthode
+				main () doit être publique<BR> <INPUT TYPE="hidden"
+					name="Reponse" ID="Reponse"> <INPUT TYPE="reset"> <INPUT
+					TYPE="submit" value="Valider" onclick="return fct()">
+			</FORM>
+		</div>
+	</div>
+</BODY>
+</HTML>

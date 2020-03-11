@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="css/style.css">
+<TITLE>3eme question</TITLE>
+<script type="text/javascript">
+	function fct() {
+		var checked1 = document.getElementById("Rep1").checked;
+		var checked2 = document.getElementById("Rep2").checked;
+		var checked3 = document.getElementById("Rep3").checked;
+		if (checked1 == false && checked2 == false && checked3 == false) {
+			alert("Vous devez au moins choisir une reponse!!!!!");
+			return false;
+		} else {
+			var nom;
+			document.getElementById("Reponse").value = "";
+
+			for (i = 1; i <= 3; i++) {
+				nom = "Rep" + i;
+				if (document.getElementById(nom).checked == true)
+					document.getElementById("Reponse").value += document
+							.getElementById(nom).value
+							+ " , ";
+
+			}
+			alert(document.getElementById("Reponse").value);
+			return true;
+		}
+
+	}
+</script>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+<div class="outer-div">
+		<div class="inner-div">
+			<h3 id="q"> une page JSP est convertie en Servlet par le moteur de Servlets ?</h3>
+	<FORM METHOD=POST ACTION="Q4.jsp">
+
+		<INPUT TYPE="checkbox" NAME="qcm" ID="Rep1" value="Lors du premier appel à la JSP">Lors du premier appelà la JSP <BR>
+		<INPUT TYPE="checkbox" NAME="qcm" ID="Rep2" value="A chaque appel de la JSP ">A chaque appel de la JSP <BR>
+		<INPUT TYPE="checkbox" NAME="qcm" ID="Rep3" value="Aucune des deux options">Aucune des deux options<BR>
+		<INPUT TYPE="hidden" name="Reponse" ID="Reponse"> 
+		<INPUT TYPE="reset"> <INPUT TYPE="Submit" value="Valider" onclick=" return fct()">
+	</FORM>
+	</div>
+	</div>
+</BODY>
+</HTML>
